@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="event; else EmptyEvent">
   <img [src]="event?.imageUrl" [alt]="event?.name">
 
   <div class="row">
@@ -22,3 +22,6 @@
     </div>
   </div>
 </div>
+<ng-template #EmptyEvent>
+ <h1> No Event Available! </h1>
+</ng-template>

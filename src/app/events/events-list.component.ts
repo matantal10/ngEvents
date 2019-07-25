@@ -9,16 +9,16 @@ import { HttpClient } from '@angular/common/http';
 export class EventsListComponent implements OnInit {
 
   public data: any;
-  public events:any;
- 
-  constructor (private es: EventService) { 
+  public events: any;
+
+  constructor(private es: EventService) {
   }
 
   ngOnInit() {
      this.events = this.es.getEvents();
   }
 
-  handleEventClicked(data){
+  handleEventClicked(data) {
     console.log(data);
     this.data = data;
   }

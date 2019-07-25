@@ -21,7 +21,7 @@ const EVENTS: any = [
           presenter: "Peter Bacon Darwin",
           duration: 1,
           level: "Intermediate",
-          abstract: `Learn all about the new pipes in Angular 4, both 
+          abstract: `Learn all about the new pipes in Angular 4, both
           how to write them, and how to get the new AI CLI to write 
           them for you. Given by the famous PBD, president of Angular 
           University (formerly Oxford University)`,
@@ -312,16 +312,16 @@ const EVENTS: any = [
     }
   ]
 
- @Injectable({
+@Injectable({
   providedIn: 'root',
 })
 
 export class EventService {
-    
-    getEvents():any {
+
+    getEvents(): any {
         return EVENTS;
     }
-   
+
     getEvent(id: number) {
         return EVENTS.find(value => value.id === id);
     }
