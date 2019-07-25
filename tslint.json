@@ -19,7 +19,7 @@
       true,
       "element",
       "",
-      "kebab-case"
+      ""
     ],
     "import-blacklist": [
       true,

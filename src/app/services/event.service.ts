@@ -319,7 +319,7 @@ const EVENTS: any = [
 export class EventService {
 
     getEvents(): any {
-        return EVENTS;
+      return EVENTS;
     }
 
     getEvent(id: number) {
