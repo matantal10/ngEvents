@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
   styles: [`
+    .event-image {height: 100px; }
   `]
 })
 export class EventDetailsComponent implements OnInit {

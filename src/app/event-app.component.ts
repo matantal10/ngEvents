@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <nav-bar></nav-bar>
     <router-outlet></router-outlet>
-    `,
-  styleUrls: ['./event-app.component.scss']
+    `
 })
 export class EventAppComponent {
   title = 'ng-fund';
