@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { IEvent } from './IEvent';
 
 
-const EVENTS: any = [
+const EVENTS: IEvent[] = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -322,7 +323,7 @@ export class EventService {
       return EVENTS;
     }
 
-    getEvent(id: number) {
+    getEvent(id: number): IEvent {
         return EVENTS.find(value => value.id === id);
     }
 }

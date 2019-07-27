@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {EventService} from '../../services/event.service';
+import {EventService} from '../../shared/event.service';
 import { HttpClient } from '@angular/common/http';
+import { IEvent } from '../../shared/IEvent';
 @Component({
   selector: 'events-list',
   templateUrl: './events-list.component.html',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class EventsListComponent implements OnInit {
 
   public data: any;
-  public events: any;
+  public events: IEvent[];
 
   constructor(private es: EventService) {
   }
