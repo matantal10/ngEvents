@@ -1,0 +1,10 @@
+:host {
+  display: inline-block;
+  background: #4e5d6c;
+  padding: 10px;
+  cursor: pointer;
+}
+
+:host:hover {
+  background: #3e4b5a;
+}

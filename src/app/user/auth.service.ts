@@ -7,11 +7,11 @@ export class AuthService {
 
     loginUser(userName: string, password: string) {
         this.currentUser = {
-            id: 1, 
+            id: 1,
             userName: userName,
             firstName: 'John',
             lastName: 'Papa'
-        }
+        };
     }
 
     isAuthenticated() {

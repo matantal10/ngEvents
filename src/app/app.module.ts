@@ -12,6 +12,8 @@ import { AuthService } from './user/auth.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { appRoutes } from './appRoutes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
+import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
+import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    SideBarComponent,
+    SideBarToggleComponent,
   ],
   imports: [
     BrowserModule,
