@@ -13,10 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations:[
+    declarations: [
         ProfileComponent,
         LoginComponent
-    ], 
+    ],
 })
 export class UserModule {}
 

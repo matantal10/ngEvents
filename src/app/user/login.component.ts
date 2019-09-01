@@ -4,11 +4,18 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
+  styles: [`
+       em {
+           color: red;
+           float: right;
+       }
+  `]
 })
 export class LoginComponent implements OnInit {
 
     public userName;
     public password;
+    public mouseOverLogin;
 
   constructor(private authService: AuthService, private router: Router) { }
 
