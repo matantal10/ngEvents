@@ -1,5 +1,5 @@
 export interface IEvent {
-    id: number
+    id: number;
     name: string;
     date: string;
     time: string;
@@ -8,7 +8,7 @@ export interface IEvent {
     location?: {
         address: string
         city: string;
-        country: string; 
+        country: string;
     };
     onlineUrl?: string;
     sessions: {
