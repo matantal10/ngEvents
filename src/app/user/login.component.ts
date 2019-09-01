@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
        em {
            color: red;
            float: right;
+           padding: 5px;
        }
   `]
 })
