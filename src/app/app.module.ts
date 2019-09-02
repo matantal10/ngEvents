@@ -14,6 +14,7 @@ import { appRoutes } from './appRoutes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
 import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-togg
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [
     EventService,

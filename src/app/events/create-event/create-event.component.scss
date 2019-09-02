@@ -1,3 +1,19 @@
 .btn {
   margin: 2px;
 }
+
+em {
+  color: red;
+  float: right;
+  padding: 5px;
+}
+
+.error input{
+  background-color: #e3c3c5;
+}
+//for the input placeholder text color - different browsers
+.error ::-webkit-input-placeholder {color: red;}
+.error ::-moz-placeholder{color: red;}
+.error :-moz-placeholder{color: red;}
+.error ::-ms-input-placeholder{color: red}
+
