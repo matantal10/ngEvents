@@ -43,6 +43,6 @@
         Restricted words found: {{ abstract?.errors.restrictedWords }}</em>
     </div>
     <button type="submit" [disabled]="newSessionForm.invalid" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="button" class="btn btn-default" (click)="cancel($event)">Cancel</button>
   </form>
 </div>

@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'session-list',
-  templateUrl: './session-list.component.html',
-  styleUrls: ['./session-list.component.scss']
+  templateUrl: './session-list.component.html'
 })
 export class SessionListComponent implements OnInit {
 

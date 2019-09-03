@@ -24,8 +24,17 @@
 </div>
 
 <hr>
+<div class="col-md-2">
+  <h2 style="margin: 0">Sessions</h2>
+</div>
 
-<session-list [sessions]="event.sessions"></session-list>
+<div class="col-md-2">
+  <a (click)="addSession()">Add New Session</a>
+</div>
+
+<create-session *ngIf="addNew" (cancelNewSession)="cancelNewSession()"></create-session>
+
+<session-list *ngIf="!addNew" [sessions]="event.sessions"></session-list>
 
 <ng-template #EmptyEvent>
  <h1> No Event Available! </h1>

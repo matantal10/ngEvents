@@ -7,12 +7,14 @@ import { IEvent } from '../../shared/IEvent';
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
   styles: [`
-    .event-image {height: 100px; }
+    .event-image { height: 100px; }
+    a { cursor: pointer; }
   `]
 })
 export class EventDetailsComponent implements OnInit {
 
   public event: IEvent;
+  public addNew = false;
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {
    }
@@ -24,5 +26,12 @@ export class EventDetailsComponent implements OnInit {
     this.event = this.eventService.getEvent(id);
   }
 
+  addSession() {
+    this.addNew = true;
+  }
+
+  cancelNewSession() {
+    this.addNew = false;
+  }
 }
 
