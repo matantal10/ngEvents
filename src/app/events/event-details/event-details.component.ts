@@ -8,7 +8,7 @@ import { IEvent } from '../../shared/IEvent';
   templateUrl: './event-details.component.html',
   styles: [`
     .event-image { height: 100px; }
-    a { cursor: pointer; }
+    a { cursor: pointer; float: right }
   `]
 })
 export class EventDetailsComponent implements OnInit {
@@ -31,6 +31,14 @@ export class EventDetailsComponent implements OnInit {
   }
 
   cancelNewSession() {
+    this.addNew = false;
+  }
+
+  saveNewSession(session) {
+    const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
+    session.id = nextId + 1;
+    this.event.sessions.push(session);
+    this.eventService.updateEvent(this.event);
     this.addNew = false;
   }
 }

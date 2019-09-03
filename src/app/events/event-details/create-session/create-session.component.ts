@@ -9,7 +9,7 @@ import {restrictedWords} from '../../../shared/restricted-words.validator';
 })
 export class CreateSessionComponent implements OnInit {
 
-
+  @Output() saveNewSession = new EventEmitter();
   @Output() cancelNewSession = new EventEmitter();
 
   private name: FormControl;
@@ -38,7 +38,7 @@ export class CreateSessionComponent implements OnInit {
   }
 
   saveSession(value) {
-    console.log(value);
+    this.saveNewSession.emit(value);
   }
 
   cancel(event) {

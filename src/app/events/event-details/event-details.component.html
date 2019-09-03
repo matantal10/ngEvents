@@ -28,11 +28,11 @@
   <h2 style="margin: 0">Sessions</h2>
 </div>
 
-<div class="col-md-2">
+<div class="col-md-8">
   <a (click)="addSession()">Add New Session</a>
 </div>
 
-<create-session *ngIf="addNew" (cancelNewSession)="cancelNewSession()"></create-session>
+<create-session *ngIf="addNew" (cancelNewSession)="cancelNewSession()" (saveNewSession)="saveNewSession($event)"></create-session>
 
 <session-list *ngIf="!addNew" [sessions]="event.sessions"></session-list>
 
