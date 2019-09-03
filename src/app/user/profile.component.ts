@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   formProfile: FormGroup;
   firstName: FormControl;
   lastName: FormControl;
-  mouseOverSave;
 
   constructor(private authService: AuthService, private router: Router) { }
 

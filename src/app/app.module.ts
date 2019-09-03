@@ -14,7 +14,8 @@ import { appRoutes } from './appRoutes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
 import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import {FormsModule} from '@angular/forms';
     CreateEventComponent,
     SideBarComponent,
     SideBarToggleComponent,
+    CreateSessionComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventService,
