@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { EventAppComponent } from './event-app.component';
 import { EventsListComponent } from './events/events-list/events-list.component';
@@ -14,8 +15,8 @@ import { appRoutes } from './appRoutes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
 import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
+import { CreateSessionComponent } from './events/create-session/create-session.component';
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CreateSessionComponent } from './events/event-details/create-session/cr
     SideBarComponent,
     SideBarToggleComponent,
     CreateSessionComponent,
+    SessionListComponent,
   ],
   imports: [
     BrowserModule,

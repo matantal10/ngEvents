@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {restrictedWords} from '../../../shared/restricted-words.validator';
+import {restrictedWords} from '../../shared/restricted-words.validator';
 
 @Component({
   selector: 'create-session',
