@@ -1,4 +1,4 @@
 <div class="well pointable" (click)="toggleSession()">
-  <h4 class="well-title">{{title}}</h4>
-  <ng-content *ngIf="isToggled"></ng-content>
+  <ng-content select="[title-well]"></ng-content>
+  <ng-content select="[body-well]" *ngIf="isToggled"></ng-content>
 </div>
