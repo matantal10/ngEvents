@@ -17,6 +17,7 @@ import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
 import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
 import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SessionListComponent } from './events/event-details/session-list/sessio
     SideBarToggleComponent,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,

@@ -40,6 +40,7 @@ export class EventDetailsComponent implements OnInit {
     this.event.sessions.push(session);
     this.eventService.updateEvent(this.event);
     this.addNew = false;
+    console.log(this.event.sessions);
   }
 }
 
