@@ -6,16 +6,19 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 })
 export class SessionListComponent implements OnChanges {
 
-  constructor() { }
+  constructor() {
+  }
 
   @Input() sessions: any;
-  @Input() fliterBy: any;
+  @Input() filterBy: any;
+  @Input() sortBy: any;
 
   public visibleSessions: [];
 
   ngOnChanges() {
     if (this.sessions) {
-      this.filterSessions(this.fliterBy);
+      this.filterSessions(this.filterBy);
+      this.sortBy === 'name' ? this.visibleSessions.sort(this.sortByNameAsc) : this.visibleSessions.sort(this.sortByVotesDec);
     }
   }
 
@@ -28,4 +31,22 @@ export class SessionListComponent implements OnChanges {
     }
   }
 
+  sortByNameAsc(s1, s2) {
+    if (s1.name.toLowerCase() > s2.name.toLowerCase()) {
+      return 1;
+    } else if (s1.name.toLowerCase() === s2.name.toLowerCase()) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+ sortByVotesDec(s1, s2) {
+    return s2.voters.length - s1.voters.length;
+  }
 }
+
+
+
+
+

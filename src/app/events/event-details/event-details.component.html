@@ -24,15 +24,27 @@
 </div>
 
 <hr>
+
 <div class="col-md-2">
   <h2 style="margin: 0">Sessions</h2>
 </div>
 
 <div class="col-md-7" style="margin-bottom: 10px;">
-  <button class="btn btn-default" [class.active]="filterBy ==='All'" (click)="filterBy ='All'">All</button>
-  <button class="btn btn-default" [class.active]="filterBy ==='Beginner'" (click)="filterBy ='Beginner'">Beginner</button>
-  <button class="btn btn-default" [class.active]="filterBy ==='Intermediate'" (click)="filterBy ='Intermediate'">Intermediate</button>
-  <button class="btn btn-default" [class.active]="filterBy ==='Advanced'" (click)="filterBy ='Advanced'">Advanced</button>
+
+  <span>Sort By</span>
+
+  <div class="btn btn-group-md">
+    <button class="btn btn-default" [class.active]="sortBy === 'name'" (click)="sortBy = 'name'">Name</button>
+    <button class="btn btn-default" [class.active]="sortBy === 'votes'" (click)="sortBy = 'votes'">Votes</button>
+  </div>
+
+  <div class="btn btn-group-md">
+    <button class="btn btn-default" [class.active]="filterBy ==='All'" (click)="filterBy ='All'">All</button>
+    <button class="btn btn-default" [class.active]="filterBy ==='Beginner'" (click)="filterBy ='Beginner'">Beginner</button>
+    <button class="btn btn-default" [class.active]="filterBy ==='Intermediate'" (click)="filterBy ='Intermediate'">Intermediate</button>
+    <button class="btn btn-default" [class.active]="filterBy ==='Advanced'" (click)="filterBy ='Advanced'">Advanced</button>
+  </div>
+
 </div>
 
 <div class="col-md-2">
@@ -41,7 +53,7 @@
 
 <create-session *ngIf="addNew" (cancelNewSession)="cancelNewSession()" (saveNewSession)="saveNewSession($event)"></create-session>
 
-<session-list *ngIf="!addNew" [fliterBy]="filterBy" [sessions]="event.sessions"></session-list>
+<session-list *ngIf="!addNew" [sortBy]="sortBy" [filterBy]="filterBy" [sessions]="event.sessions"></session-list>
 
 <ng-template #EmptyEvent>
  <h1> No Event Available! </h1>

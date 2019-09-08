@@ -16,6 +16,7 @@ export class EventDetailsComponent implements OnInit {
   public event: IEvent;
   public addNew = false;
   public filterBy = 'All';
+  public sortBy = 'name';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {
    }
