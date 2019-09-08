@@ -28,13 +28,20 @@
   <h2 style="margin: 0">Sessions</h2>
 </div>
 
-<div class="col-md-8">
+<div class="col-md-2" style="margin-bottom: 10px;">
+  <button class="btn btn-default" [class.active]="filterBy ==='All'" (click)="filterBy ='All'">All</button>
+  <button class="btn btn-default" [class.active]="filterBy ==='Beginner'" (click)="filterBy ='Beginner'">Beginner</button>
+  <button class="btn btn-default" [class.active]="filterBy ==='Intermediate'" (click)="filterBy ='Intermediate'">Intermediate</button>
+  <button class="btn btn-default" [class.active]="filterBy ==='Advanced'" (click)="filterBy ='Advanced'">Advanced</button>
+</div>
+
+<div class="col-md-2">
   <a (click)="addSession()">Add New Session</a>
 </div>
 
 <create-session *ngIf="addNew" (cancelNewSession)="cancelNewSession()" (saveNewSession)="saveNewSession($event)"></create-session>
 
-<session-list *ngIf="!addNew" [sessions]="event.sessions"></session-list>
+<session-list *ngIf="!addNew" [fliterBy]="filterBy" [sessions]="event.sessions"></session-list>
 
 <ng-template #EmptyEvent>
  <h1> No Event Available! </h1>

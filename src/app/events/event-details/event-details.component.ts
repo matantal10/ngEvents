@@ -8,13 +8,14 @@ import { IEvent } from '../../shared/IEvent';
   templateUrl: './event-details.component.html',
   styles: [`
     .event-image { height: 100px; }
-    a { cursor: pointer; float: right }
+    a { cursor: pointer; }
   `]
 })
 export class EventDetailsComponent implements OnInit {
 
   public event: IEvent;
   public addNew = false;
+  public filterBy = 'All';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {
    }
