@@ -11,6 +11,7 @@ import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './shared/event.service';
 import { AuthService } from './user/auth.service';
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
+import { JQ_TOKEN} from './shared/jQuery.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { appRoutes } from './appRoutes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
@@ -18,10 +19,11 @@ import { SideBarComponent } from './side-bar/side-bar-menu/side-bar.component';
 import { SideBarToggleComponent } from './side-bar/side-bar-toggle/side-bar-toggle.component';
 import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './shared/duration.pipe';
 
-declare let toastr: Toastr;
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ declare let toastr: Toastr;
   providers: [
     EventService,
     AuthService,
-    { provide: TOASTR_TOKEN, useValue: toastr}
+    { provide: TOASTR_TOKEN, useValue: toastr},
+    { provide: JQ_TOKEN, useValue: jQuery}
   ],
   bootstrap: [EventAppComponent]
 })
