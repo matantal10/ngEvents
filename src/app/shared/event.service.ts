@@ -348,7 +348,7 @@ export class EventService {
         let matchingSessions = event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1);
         // Adding event ID to matchingSession Object
         matchingSessions = matchingSessions.map((session: any) => {
-          session.Eventid = event.id;
+          session.eventId = event.id;
           return session;
         });
         results = results.concat(matchingSessions);
