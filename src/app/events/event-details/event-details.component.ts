@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EventService} from '../../shared/event.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import { IEvent } from '../../shared/IEvent';
 
 @Component({
@@ -22,10 +22,14 @@ export class EventDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.event = this.eventService.getEvent(1);
-    // +: for casting into a number
-    const id = this.route.snapshot.params.id ? +this.route.snapshot.params.id : null;
-    this.event = this.eventService.getEvent(id);
+    // ForEach helps resetting the event on any change from outer components
+   this.route.params.forEach((params: Params) => {
+     this.event = this.eventService.getEvent(+params.id);
+     // initialize default setting on any event change from outer compnent event
+     this.addNew = false;
+     this.filterBy = 'All';
+     this.sortBy = 'name';
+   });
   }
 
   addSession() {
