@@ -24,8 +24,8 @@ import { DurationPipe } from './shared/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 
-const toastr: Toastr = window['toastr'];
-const jQuery = window['$'];
+declare const $;
+declare const toastr;
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ const jQuery = window['$'];
     EventService,
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
-    { provide: JQ_TOKEN, useValue: jQuery}
+    { provide: JQ_TOKEN, useValue: $}
   ],
   bootstrap: [EventAppComponent]
 })
