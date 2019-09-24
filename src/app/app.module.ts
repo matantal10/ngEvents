@@ -10,6 +10,7 @@ import { EventThumbnailComponent } from './events/events-list/event-thumbnail/ev
 import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './shared/event.service';
 import { AuthService } from './user/auth.service';
+import {VoterService} from './shared/voter.service';
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 import { JQ_TOKEN} from './shared/jQuery.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
@@ -23,6 +24,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-
 import { DurationPipe } from './shared/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { UpvoteComponent } from './events/event-details/session-list/upvote/upvote.component';
 
 const toastr: Toastr = window['toastr'];
 const jQuery = window['$'];
@@ -42,7 +44,8 @@ const jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ const jQuery = window['$'];
   providers: [
     EventService,
     AuthService,
+    VoterService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery}
   ],
