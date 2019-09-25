@@ -10,9 +10,9 @@
       </div>
       <div>Price: {{event.price | currency}}</div>
       <div>
-        <span>Location: {{event.location.address}}</span>
+        <span>Location: {{event.location?.address}}</span>
          <span>&nbsp;</span>
-        <span>{{event.location.city}}, {{event.location.country}}</span>
+        <span>{{event.location?.city}}, {{event.location?.country}}</span>
       </div>
        <button class="btn btn-primary" (click)="clickFunction()">Click Me!</button>
   </div>

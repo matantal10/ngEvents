@@ -1,6 +1,9 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import { IEvent } from './IEvent';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {error} from 'util';
 
 
 const EVENTS: IEvent[] = [
@@ -320,13 +323,24 @@ const EVENTS: IEvent[] = [
 
 export class EventService {
 
-    getEvents(): any {
-      return EVENTS;
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    getEvent(id: number): IEvent {
-        return EVENTS.find(value => value.id === id);
-    }
+  getEvents(): Observable<IEvent[]> {
+    return this.http.get<IEvent[]>('/api/events')
+      .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (errorMessage: any): Observable<T> => {
+      console.error(errorMessage);
+      return of(result as T);
+    };
+  }
+
+  getEvent(id: number): IEvent {
+      return EVENTS.find(value => value.id === id);
+  }
 
   saveEvent(event) {
     event.id = 999;

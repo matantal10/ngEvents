@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import {EventService} from '../../shared/event.service';
-import { HttpClient } from '@angular/common/http';
 import { IEvent } from '../../shared/IEvent';
+
 @Component({
   selector: 'events-list',
   templateUrl: './events-list.component.html',
@@ -16,7 +16,9 @@ export class EventsListComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.events = this.es.getEvents();
+    this.es.getEvents().subscribe(events => {
+      this.events = events;
+    });
   }
 
   handleEventClicked(data) {
