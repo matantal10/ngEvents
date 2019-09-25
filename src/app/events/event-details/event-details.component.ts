@@ -23,15 +23,13 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit() {
     // ForEach helps resetting the event on any change from outer components
-   this.route.params.forEach((params: Params) => {
-     this.eventService.getEvent(+params.id).subscribe((event: IEvent) => {
-       this.event = event;
+   this.route.data.forEach((data) => {
+     this.event = data['event']; // use code if using Resolve, resolve automatically subscribe.
        // initialize default setting on any event change from outer compnent event
-       this.addNew = false;
-       this.filterBy = 'All';
-       this.sortBy = 'name';
+     this.addNew = false;
+     this.filterBy = 'All';
+     this.sortBy = 'name';
      });
-   });
   }
 
   addSession() {

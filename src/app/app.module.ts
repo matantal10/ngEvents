@@ -12,6 +12,7 @@ import { EventService } from './shared/event.service';
 import { AuthService } from './user/auth.service';
 import { VoterService } from './shared/voter.service';
 import { EventsListResolverService } from './shared/events-list-resolver.service';
+import {EventResolverService} from './shared/event-resolver.service';
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 import { JQ_TOKEN} from './shared/jQuery.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
@@ -60,6 +61,7 @@ const jQuery = window['$'];
     AuthService,
     VoterService,
     EventsListResolverService,
+    EventResolverService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery}
   ],
