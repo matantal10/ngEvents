@@ -1,10 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import { IEvent } from './IEvent';
-import {Observable, of} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {error} from 'util';
-
 
 const EVENTS: IEvent[] = [
     {
@@ -323,10 +321,17 @@ const EVENTS: IEvent[] = [
 
 export class EventService {
 
+  public subject = new Subject();
+
   constructor(private http: HttpClient) {
   }
 
-  getEvents(): Observable<IEvent[]> {
+  getEvents() {
+    // setTimeout(() => {
+    //   this.subject.next(EVENTS);
+    //   this.subject.complete();
+    // }, 2000)
+    // return this.subject;
     return this.http.get<IEvent[]>('/api/events')
       .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }

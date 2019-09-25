@@ -10,7 +10,8 @@ import { EventThumbnailComponent } from './events/events-list/event-thumbnail/ev
 import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './shared/event.service';
 import { AuthService } from './user/auth.service';
-import {VoterService} from './shared/voter.service';
+import { VoterService } from './shared/voter.service';
+import { EventsListResolverService } from './shared/events-list-resolver.service';
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 import { JQ_TOKEN} from './shared/jQuery.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
@@ -58,6 +59,7 @@ const jQuery = window['$'];
     EventService,
     AuthService,
     VoterService,
+    EventsListResolverService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery}
   ],
