@@ -326,7 +326,7 @@ export class EventService {
   constructor(private http: HttpClient) {
   }
 
-  getEvents() {
+  getEvents(): Observable<IEvent[]> {
     // setTimeout(() => {
     //   this.subject.next(EVENTS);
     //   this.subject.complete();
@@ -336,15 +336,9 @@ export class EventService {
       .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (errorMessage: any): Observable<T> => {
-      console.error(errorMessage);
-      return of(result as T);
-    };
-  }
-
-  getEvent(id: number): IEvent {
-      return EVENTS.find(value => value.id === id);
+  getEvent(id: number): Observable<IEvent> {
+    return this.http.get<IEvent>('/api/events/' + id)
+      .pipe(catchError(this.handleError<IEvent>('getEvents')));
   }
 
   saveEvent(event) {
@@ -378,5 +372,12 @@ export class EventService {
         emitter.emit(results);
       }, 100);
       return emitter;
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (errorMessage: any): Observable<T> => {
+      console.error(errorMessage);
+      return of(result as T);
+    };
   }
 }
