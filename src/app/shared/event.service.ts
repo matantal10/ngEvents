@@ -353,31 +353,35 @@ export class EventService {
     EVENTS[index] = event;
   }
 
-  searchSessions(sessionTerm: string) {
+  searchSessions(sessionTerm: string): Observable<any> {
 
-      let results = [];
-      const term = sessionTerm.toLowerCase();
+      // let results = [];
+      // const term = sessionTerm.toLowerCase();
+      //
+      // EVENTS.forEach(event => {
+      //   let matchingSessions = event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1);
+      //   // Adding event ID to matchingSession Object
+      //   matchingSessions = matchingSessions.map((session: any) => {
+      //     session.eventId = event.id;
+      //     return session;
+      //   });
+      //   results = results.concat(matchingSessions);
+      // });
+      // // Simulating async call...to return results.
+      // const emitter = new EventEmitter();
+      // setTimeout(() => {
+      //   emitter.emit(results);
+      // }, 100);
+      // return emitter;
 
-      EVENTS.forEach(event => {
-        let matchingSessions = event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1);
-        // Adding event ID to matchingSession Object
-        matchingSessions = matchingSessions.map((session: any) => {
-          session.eventId = event.id;
-          return session;
-        });
-        results = results.concat(matchingSessions);
-      });
-      // Simulating async call...to return results.
-      const emitter = new EventEmitter();
-      setTimeout(() => {
-        emitter.emit(results);
-      }, 100);
-      return emitter;
+    // the server now is responsible for the search logic.
+    return this.http.get('/api/sessions/search?search=' + sessionTerm)
+      .pipe(catchError(this.handleError('searchSessions')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (errorMessage: any): Observable<T> => {
-      console.error(errorMessage);
+      console.error('Error Message', errorMessage);
       return of(result as T);
     };
   }
