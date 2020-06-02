@@ -28,8 +28,8 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { UpvoteComponent } from './events/event-details/session-list/upvote/upvote.component';
 
-const toastr: Toastr = window['toastr'];
-const jQuery = window['$'];
+declare const $;
+declare const toastr;
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ const jQuery = window['$'];
     EventsListResolverService,
     EventResolverService,
     { provide: TOASTR_TOKEN, useValue: toastr},
-    { provide: JQ_TOKEN, useValue: jQuery}
+    { provide: JQ_TOKEN, useValue: $}
   ],
   bootstrap: [EventAppComponent]
 })
